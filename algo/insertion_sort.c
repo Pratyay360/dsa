@@ -1,5 +1,5 @@
 #include<stdio.h>
-int mergesort(int a[100], int n)
+void insertionsort(int a[100], int n)
 {
     int temp, i, j, k;
     for(i=1;i<n;i++)
@@ -28,7 +28,7 @@ int main()
     {
         printf("%d, ", a[i]);
     }
-    mergesort(a, n);
+    insertionsort(a, n);
     printf("\nsorted Array : \n");
     for(int i=0;i<n;i++)
     {

@@ -1,16 +1,24 @@
 #include<stdio.h>
-int insertionsort(int a[100], int n)
+void selectionsort(int a[100], int n)
 {
-    int temp, i, j, k;
-    for(i=1;i<n;i++)
+    int loc, temp, i, j;
+    for(i=0;i<n-1;i++)
     {
-        k = a[i];
-        for(j=i-1;j>=0 && k<a[j];j--)
+        loc=i;
+        for(j=i+1;j<n;j++)
         {
-            a[j+1] = a[j];
+            if(a[j]<a[loc])
+            {
+                loc=j;
+            }
         }
-        a[j+1]=k;
-    }         
+        if(loc!=i)
+        {
+            temp=a[i];
+            a[i]=a[loc];
+            a[loc]=temp;
+        }
+    }             
 }
 int main()
 {
@@ -28,7 +36,7 @@ int main()
     {
         printf("%d, ", a[i]);
     }
-    insertionsort(a, n);
+    selectionsort(a, n);
     printf("\nsorted Array : \n");
     for(int i=0;i<n;i++)
     {

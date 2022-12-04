@@ -1,24 +1,16 @@
 #include<stdio.h>
-int selectionsort(int a[100], int n)
+void mergesort(int a[100], int n)
 {
-    int loc, temp, i, j;
-    for(i=0;i<n-1;i++)
+    int temp, i, j, k;
+    for(i=1;i<n;i++)
     {
-        loc=i;
-        for(j=i+1;j<n;j++)
+        k = a[i];
+        for(j=i-1;j>=0 && k<a[j];j--)
         {
-            if(a[j]<a[loc])
-            {
-                loc=j;
-            }
+            a[j+1] = a[j];
         }
-        if(loc!=i)
-        {
-            temp=a[i];
-            a[i]=a[loc];
-            a[loc]=temp;
-        }
-    }             
+        a[j+1]=k;
+    }         
 }
 int main()
 {
@@ -36,7 +28,7 @@ int main()
     {
         printf("%d, ", a[i]);
     }
-    selectionsort(a, n);
+    mergesort(a, n);
     printf("\nsorted Array : \n");
     for(int i=0;i<n;i++)
     {
