@@ -1,17 +1,4 @@
 #include<stdio.h>
-void mergesort(int a[100], int n)
-{
-    int temp, i, j, k;
-    for(i=1;i<n;i++)
-    {
-        k = a[i];
-        for(j=i-1;j>=0 && k<a[j];j--)
-        {
-            a[j+1] = a[j];
-        }
-        a[j+1]=k;
-    }         
-}
 int main()
 {
     int a[100], n, s, p;
@@ -36,4 +23,23 @@ int main()
     }
 
     return 0;
+}
+void merge(int low, int mid,int high)
+{
+    int temp[100], i = low, j= mid+1, k = high;
+    while((i<=mid)&&(j<=high))
+    {
+        if(a)
+    }
+}
+void mergesort(int low, int high)
+{
+    int mid;
+    if(low!=high)
+    {
+        mid=(low+high)/2;
+        mergesort(low, mid);
+        mergesort(mid+1,high);
+        merge(low,mid,high);
+    }
 }
